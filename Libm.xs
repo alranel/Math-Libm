@@ -377,6 +377,8 @@ lgamma_r(x, signgamp)
 #ifdef _AIX
 	RETVAL = lgamma(x);
 	signgamp = signgam;
+#elif defined _WIN32
+	not_here("lgamma_r");
 #else
 	RETVAL = lgamma_r(x, &signgamp);
 #endif
